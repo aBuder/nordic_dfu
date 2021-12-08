@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'dart:developer';
 import 'package:flutter/services.dart';
 
 /// Some parameter just use in Android
@@ -96,6 +96,11 @@ class NordicDfu {
     IosSpecialParameter iosSpecialParameter = const IosSpecialParameter(),
   }) async {
     _channel.setMethodCallHandler((MethodCall call) {
+      log(
+        'setMethodCallHandler method: ${call.method} arguments: ${call.arguments}',
+        name: runtimeType.toString(),
+        time: DateTime.now(),
+      );
       switch (call.method) {
         case 'onDeviceConnected':
           progressListener?.onDeviceConnected(call.arguments);
