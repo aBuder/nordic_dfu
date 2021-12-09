@@ -98,7 +98,7 @@ class NordicDfu {
     _channel.setMethodCallHandler((MethodCall call) {
       log(
         'setMethodCallHandler method: ${call.method} arguments: ${call.arguments}',
-        name: runtimeType.toString(),
+        name: 'NordicDfu',
         time: DateTime.now(),
       );
       switch (call.method) {
