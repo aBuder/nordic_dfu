@@ -95,6 +95,11 @@ class NordicDfu {
         const AndroidSpecialParameter(),
     IosSpecialParameter iosSpecialParameter = const IosSpecialParameter(),
   }) async {
+          log(
+        'startDfu address: $address',
+        name: 'NordicDfu',
+        time: DateTime.now(),
+      );
     _channel.setMethodCallHandler((MethodCall call) {
       log(
         'setMethodCallHandler method: ${call.method} arguments: ${call.arguments}',
